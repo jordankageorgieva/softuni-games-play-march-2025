@@ -1,4 +1,4 @@
-export default function EditPage() {
+export default function GameEdit() {
     return (
         <>
             {/* <!-- Edit Page ( Only for the creator )--> */}
