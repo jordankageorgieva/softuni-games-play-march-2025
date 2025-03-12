@@ -1,12 +1,20 @@
-export default function CataloguePageItem() {
+import {Link} from "react-router";
+
+export default function CataloguePageItem({
+    imageUrl,
+    title,
+    category,
+    action,
+    link
+}) {
     return (
         <>
             <div className="allGames">
                 <div className="allGames-info">
-                    <img src="./images/avatar-1.jpg" />
-                    <h6>Action</h6>
-                    <h2>Cover Fire</h2>
-                    <a href="#" className="details-button">Details</a>
+                    <img src={imageUrl}/>
+                    <h6>{category}</h6>
+                    <h2>{title}</h2>
+                    <Link to="#" className="details-button">Details</Link>
                 </div>
 
             </div>
