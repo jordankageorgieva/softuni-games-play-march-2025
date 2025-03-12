@@ -14,33 +14,33 @@ function App() {
 
   return (
     <>
-      <body>
-        <div id="box">
+
+      <div id="box">
 
 
 
-          <Header />
+        <Header />
 
-          {/* <!-- Main Content --> */}
-          <main id="main-content">
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/login' element={<LoginPage />} />
-              <Route path='/register' element={<RegisterPage />} />
-              <Route path='/games/create' element={<CreatePage />} />
-              <Route path='/games' element={<CataloguePage />} />
+        {/* <!-- Main Content --> */}
+        <main id="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/games/create" element={<CreatePage />} />
+            <Route path="/games" element={<CataloguePage />} />
 
-            </Routes>
-          </main>
+          </Routes>
+        </main>
 
-         
-          
-          
-          {/* <GameEdit />
+
+
+
+        {/* <GameEdit />
           <DetailsPage /> */}
-          
-        </div>
-      </body>
+
+      </div>
+
     </>
   )
 }
