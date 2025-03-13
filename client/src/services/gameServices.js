@@ -60,5 +60,23 @@ export default {
 
         
         return isUserDelete;
+    },
+    async updateGame (gameId, formData){
+
+        const response = await fetch(
+            `${baseURL}/${gameId}`, 
+            {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData),
+        });
+
+        const resData = await response.json();
+        console.log(resData);
+        
+        return resData;
+
     }
 }
