@@ -3,7 +3,7 @@ import { request } from "../utils/register";
 const baseURL = " http://localhost:3030/jsonstore/games";
 
 export default {
-    async getAll () {
+    async getAll() {
         // return all games
         const response = await fetch(baseURL);
         const data = await response.json(); // parse the response body as JSON
@@ -12,7 +12,7 @@ export default {
         return result;
 
     },
-    async create (gameData) {
+    async create(gameData) {
         const response = await fetch(baseURL,
             {
                 method: 'POST',
@@ -30,14 +30,35 @@ export default {
         // return request('POST', URL, gameData);
 
     },
-    async getGame(gameId){
+    async getGame(gameId) {
         const response = await fetch(`${baseURL}/${gameId}`);
-    
+
         if (!response.ok) {
             throw new Error(`Error: ${response.statusText}`);
         }
         const data = await response.json(); // parse the response body as JSON
-              
+
         return data;
+    },
+    async deleteGame(gameId) {
+
+        let isUserDelete = false;
+        const response = await fetch(
+            `${baseURL}/${gameId}`, 
+            {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.statusText}`);
+        } else {
+            isUserDelete = true;
+        }
+
+        
+        return isUserDelete;
     }
 }

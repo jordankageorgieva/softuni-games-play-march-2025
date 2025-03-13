@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import gameServices from "../../services/gameServices";
 import useScrollToTop from "../../custom-hook/useScrollToTop";
 
 export default function DetailsPage() {
     const { gameId } = useParams();
     const [game, setGame] = useState([]);
+
+    const navigate = useNavigate();
 
     useScrollToTop.useScrollToTop();
 
@@ -15,6 +17,19 @@ export default function DetailsPage() {
                 setGame(res);
             })
     }, [gameId]);
+
+    const deleteGameHandler = () => {
+        const hasConfirm = confirm(`Are you sure youi want to delete ${game.title} game?`);
+        if (hasConfirm) {
+            try {
+                gameServices.deleteGame(gameId);
+                navigate('/games');
+            } catch (error) {
+                console.error('Error deleting game:', error);
+            }
+        }
+
+    }
 
     return (
         <>
@@ -31,7 +46,7 @@ export default function DetailsPage() {
                     </div>
 
                     <p className="text">
-                       {game.summary}
+                        {game.summary}
                     </p>
 
                     {/* <!-- Bonus ( for Guests and Users ) --> */}
@@ -52,8 +67,9 @@ export default function DetailsPage() {
 
                     {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
                     <div className="buttons">
-                        <a href="#" className="button">Edit</a>
-                        <a href="#" className="button">Delete</a>
+                        <Link to={`/games/${game._id}/game-edit`} className="button">Edit</Link>
+                        <button onClick={deleteGameHandler}
+                            className="button">Delete</button>
                     </div>
                 </div>
 
