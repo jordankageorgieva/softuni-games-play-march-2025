@@ -29,6 +29,7 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/games/create" element={<CreatePage />} />
             <Route path="/games" element={<CataloguePage />} />
+            <Route path="/games/:gameId/details" element={<DetailsPage/>} />
 
           </Routes>
         </main>

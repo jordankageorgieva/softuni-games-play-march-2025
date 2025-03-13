@@ -1,6 +1,7 @@
 import {Link} from "react-router";
 
 export default function CataloguePageItem({
+    _id,
     imageUrl,
     title,
     category,
@@ -14,7 +15,7 @@ export default function CataloguePageItem({
                     <img src={imageUrl}/>
                     <h6>{category}</h6>
                     <h2>{title}</h2>
-                    <Link to="#" className="details-button">Details</Link>
+                    <Link to={`/games/${_id}/details`} className="details-button">Details</Link>
                 </div>
 
             </div>
