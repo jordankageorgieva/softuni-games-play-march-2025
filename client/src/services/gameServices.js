@@ -63,6 +63,8 @@ export default {
     },
     async updateGame (gameId, formData){
 
+        formData._id = gameId;
+
         const response = await fetch(
             `${baseURL}/${gameId}`, 
             {
