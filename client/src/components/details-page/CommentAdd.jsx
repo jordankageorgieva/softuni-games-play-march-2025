@@ -1,4 +1,6 @@
-export default function CommentAdd() {
+export default function CommentAdd({
+    email
+}) {
     return (
         <>
             {/* <!-- Bonus --> */}

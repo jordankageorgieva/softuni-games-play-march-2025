@@ -4,6 +4,7 @@ import CataloguePageItem from "./CataloguePageItem";
 
 export default function CataloguePage() {
     const [games, setGames] = useState([]);
+    // const [email, setEmail] = useState(inEmail);
 
     useEffect(() => {
         gameServices.getAll()
@@ -14,7 +15,7 @@ export default function CataloguePage() {
 
     }, []);
 
-    console.log(games);
+    // console.log("CataloguePage " + inEmail);
 
     return (
         <>

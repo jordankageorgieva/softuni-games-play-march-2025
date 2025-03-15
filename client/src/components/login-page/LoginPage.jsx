@@ -1,11 +1,17 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
-export default function LoginPage() {
+export default function LoginPage({
+    login
+}) {
+    const navigate = useNavigate();
+
     const loginAction = (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
         const email = formData.get('email');
-        console.log(email);
+        login(email);
+
+        navigate("/games");
 
     }
     return (

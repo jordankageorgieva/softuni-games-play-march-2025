@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 
 import CataloguePage from './components/catalogue-page/CataloguePage';
@@ -12,6 +13,12 @@ import { Routes, Route } from 'react-router';
 
 function App() {
 
+  const [email, setEmail] = useState('');
+
+  const putLoginActionData = (email) => {
+      setEmail(email);
+  }
+
   return (
     <>
 
@@ -25,14 +32,14 @@ function App() {
         <main id="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage login={putLoginActionData}/>} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/games/create" element={<CreatePage />} />
             <Route path="/games" element={<CataloguePage />} />
-            <Route path="/games/:gameId/game-edit" element={<GameEdit/>} />
-            <Route path="/games/:gameId/game-details" element={<DetailsPage/>} />
-            
-            
+            <Route path="/games/:gameId/game-edit" element={<GameEdit />} />
+            <Route path="/games/:gameId/game-details" element={<DetailsPage email={email}/>} />
+
+
 
           </Routes>
         </main>

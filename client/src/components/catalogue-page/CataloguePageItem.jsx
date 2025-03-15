@@ -6,8 +6,9 @@ export default function CataloguePageItem({
     title,
     category,
     action,
-    link
+    link,
 }) {
+
     return (
         <>
             <div className="allGames">
