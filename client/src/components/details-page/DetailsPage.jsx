@@ -10,6 +10,7 @@ export default function DetailsPage({
 }) {
     const { gameId } = useParams();
     const [game, setGame] = useState([]);
+    const [newComment, setNewComment] = useState();
 
     const navigate = useNavigate();
 
@@ -35,6 +36,12 @@ export default function DetailsPage({
 
     }
 
+    const addCommentHandler = (comment) => {
+
+        console.log(comment);
+        setNewComment(comment);
+    }
+
     return (
         <>
             {/* <!--Details Page--> */}
@@ -52,8 +59,8 @@ export default function DetailsPage({
                     <p className="text">
                         {game.summary}
                     </p>
-                    <CommentsList />
-                    
+                    <CommentsList gameId={game._id} newComment={newComment}/>
+
 
                     {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
                     <div className="buttons">
@@ -63,7 +70,11 @@ export default function DetailsPage({
                     </div>
                 </div>
 
-                <CommentAdd email={email}/>
+                <CommentAdd
+                    gameId={game._id}
+                    email={email}
+                    addComment={addCommentHandler}
+                />
 
             </section>
 

@@ -1,6 +1,6 @@
 import { request } from "../utils/register";
 
-const baseURL = " http://localhost:3030/jsonstore/games";
+const baseURL = "http://localhost:3030/jsonstore/games";
 
 export default {
     async getAll() {

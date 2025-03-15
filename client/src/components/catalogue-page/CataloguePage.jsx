@@ -15,7 +15,6 @@ export default function CataloguePage() {
 
     }, []);
 
-    // console.log("CataloguePage " + inEmail);
 
     return (
         <>
