@@ -6,12 +6,14 @@ export default function LoginPage({
     onLogin
 }) {
     const navigate = useNavigate();
+    //useLogin is a custom hook and we use the function login to send the data
     const {login} = useLogin();
 
     const loginHandler = async (previusstate, formData) => {
      
         const state = Object.fromEntries(formData);
 
+        // we use the login function in the costom hook to make a POST request with email + pass
         const authData = await login(state.email, state.password);
 
         onLogin(authData);
