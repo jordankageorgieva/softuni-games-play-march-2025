@@ -17,7 +17,7 @@ export default function LoginPage({
     return (
         <>
             {/* <!-- Login Page ( Only for Guest users ) --> */}
-            <section id="login-page" className="auth"></section>
+            <section id="login-page" className="auth">
             <form id="login" onSubmit={loginAction}>
                 <div className="container">
                     <div className="brand-logo"></div>
@@ -32,6 +32,7 @@ export default function LoginPage({
                     </p>
                 </div>
             </form>
+            </section>
         </>
 
     );
