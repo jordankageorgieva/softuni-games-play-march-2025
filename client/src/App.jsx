@@ -15,43 +15,32 @@ function App() {
 
   const [email, setEmail] = useState('');
 
-  const putLoginActionData = (email) => {
-      setEmail(email);
+  const putLoginActionData = (authData) => {
+    console.log("authData " + JSON.stringify(authData));
+      setEmail(authData.email);
   }
 
   return (
     <>
 
       <div id="box">
-
-
-
         <Header />
 
         {/* <!-- Main Content --> */}
         <main id="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<LoginPage login={putLoginActionData}/>} />
+            <Route path="/login" element={<LoginPage onLogin={putLoginActionData}/>} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/games/create" element={<CreatePage />} />
             <Route path="/games" element={<CataloguePage />} />
             <Route path="/games/:gameId/game-edit" element={<GameEdit />} />
             <Route path="/games/:gameId/game-details" element={<DetailsPage email={email}/>} />
-
-
-
           </Routes>
         </main>
-
-
-
-
         {/* <GameEdit />
           <DetailsPage /> */}
-
       </div>
-
     </>
   )
 }
