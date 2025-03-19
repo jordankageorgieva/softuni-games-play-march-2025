@@ -21,6 +21,7 @@ export default function LoginPage() {
         const authData = await login(state.email, state.password);
 
         // putLoginActionData in Context hook to populate the authentication data
+        // we call the authentication handler for loggin
         putLoginActionData(authData);
 
         navigate("/games");

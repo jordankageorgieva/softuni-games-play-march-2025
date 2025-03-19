@@ -16,6 +16,7 @@ function App() {
 
   const [authData, setAuthData] = useState({});
 
+   // putLoginActionData is the authentication handler for loggin
   const putLoginActionData = (authData) => {
     setAuthData(authData);
   }
