@@ -30,12 +30,12 @@ function App() {
           <main id="main-content">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/login" element={<LoginPage onLogin={putLoginActionData} />} />
+              <Route path="/login" element={<LoginPage  />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/games/create" element={<CreatePage />} />
               <Route path="/games" element={<CataloguePage />} />
               <Route path="/games/:gameId/game-edit" element={<GameEdit />} />
-              <Route path="/games/:gameId/game-details" element={<DetailsPage email={authData.email} />} />
+              <Route path="/games/:gameId/game-details" element={<DetailsPage />} />
             </Routes>
           </main>
           {/* <GameEdit />

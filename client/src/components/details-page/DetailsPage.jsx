@@ -12,6 +12,7 @@ export default function DetailsPage() {
     const [newComment, setNewComment] = useState();
 
     const {email} = useContext(UserContext);
+    console.log(email + " email" );
 
     const navigate = useNavigate();
 
