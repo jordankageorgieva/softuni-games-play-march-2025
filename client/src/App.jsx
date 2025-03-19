@@ -13,11 +13,11 @@ import { Routes, Route } from 'react-router';
 
 function App() {
 
-  const [email, setEmail] = useState('');
+  const [authData, setAuthData] = useState({});
 
   const putLoginActionData = (authData) => {
     console.log("authData " + JSON.stringify(authData));
-      setEmail(authData.email);
+    setAuthData(authData);
   }
 
   return (
@@ -35,7 +35,7 @@ function App() {
             <Route path="/games/create" element={<CreatePage />} />
             <Route path="/games" element={<CataloguePage />} />
             <Route path="/games/:gameId/game-edit" element={<GameEdit />} />
-            <Route path="/games/:gameId/game-details" element={<DetailsPage email={email}/>} />
+            <Route path="/games/:gameId/game-details" element={<DetailsPage email={authData.email}/>} />
           </Routes>
         </main>
         {/* <GameEdit />

@@ -22,7 +22,7 @@ export const useLogin = () => {
             });
 
         const resData = await response.json();
-        console.log(resData);
+        console.log("resData " + JSON.stringify(resData));
 
         return resData;
     }
