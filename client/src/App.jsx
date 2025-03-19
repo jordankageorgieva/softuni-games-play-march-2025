@@ -11,6 +11,7 @@ import LoginPage from './components/login-page/LoginPage';
 import RegisterPage from './components/register-page/RegisterPage';
 import { Routes, Route } from 'react-router';
 import { UserContext } from './hookContext/userContext';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
 
   return (
     <>
+    // The Provider helps to inject the data with useContext through all the components in the tree (in the application)
       <UserContext.Provider value={{...authData, putLoginActionData} }>
         <div id="box">
           <Header />

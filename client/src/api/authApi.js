@@ -1,7 +1,10 @@
 import { useEffect, useRef } from "react";
 
+const baseURL = "http://localhost:3030/users/";
+
+
 export const useLogin = () => {
-    const baseURL = "http://localhost:3030/users/login";
+    const loginURL = `${baseURL}login`;
 
     // Initialize the AbortController
     const abortRef = useRef(new AbortController);
@@ -11,7 +14,7 @@ export const useLogin = () => {
         const formData = { email: email, password: password };
 
         const response = await fetch(
-            `${baseURL}`,
+            `${loginURL}`,
             {
                 method: 'POST',
                 headers: {
@@ -38,4 +41,29 @@ export const useLogin = () => {
     return {
         login
     };
+}
+
+export const useRegister = () => {
+    const registerURL = `${baseURL}register`;
+
+    const register = async (email, password) => {
+
+        const formData = { email: email, password: password };
+
+        const response = await fetch(
+            `${registerURL}`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData),
+                // signal: abortRef.current.signal,
+            });
+    }
+
+    return {
+        register
+    };
+
 }
