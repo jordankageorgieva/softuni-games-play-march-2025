@@ -41,6 +41,12 @@ export default {
         if (!response.ok) {
             throw new Error(`Error: ${response.statusText}`);
         }
+
+        const text = await response.text();
+        if (!text) {
+            return [];
+        }
+
         const data = await response.json();
         const result = Object.values(data).filter(comment => comment.gameId === gameId);
         return result;
