@@ -16,7 +16,6 @@ function App() {
   const [authData, setAuthData] = useState({});
 
   const putLoginActionData = (authData) => {
-    console.log("authData " + JSON.stringify(authData));
     setAuthData(authData);
   }
 

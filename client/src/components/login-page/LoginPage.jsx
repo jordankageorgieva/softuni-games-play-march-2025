@@ -15,7 +15,7 @@ export default function LoginPage({
         const state = Object.fromEntries(formData);
 
         // we use the login function in the costom hook to make a POST request with email + pass
-        const authData = login(state.email, state.password);
+        const authData = await login(state.email, state.password);
 
         onLogin(authData);
 

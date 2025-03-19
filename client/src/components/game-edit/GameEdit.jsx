@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router";
-import useScrollToTop from "../../custom-hook/useScrollToTop";
+import useScrollToTop from "../../hookCustom/useScrollToTop";
 import { useEffect, useState } from "react";
 import gameServices from "../../services/gameServices";
 
