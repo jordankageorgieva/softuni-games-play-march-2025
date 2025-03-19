@@ -1,16 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import gameServices from "../../services/gameServices";
 import useScrollToTop from "../../hookCustom/useScrollToTop";
 import CommentsList from "./CommentsList";
 import CommentAdd from "./CommentAdd";
+import { UserContext } from "../../hookContext/userContext";
 
-export default function DetailsPage({
-    email
-}) {
+export default function DetailsPage() {
     const { gameId } = useParams();
     const [game, setGame] = useState([]);
     const [newComment, setNewComment] = useState();
+
+    const {email} = useContext(UserContext);
 
     const navigate = useNavigate();
 
