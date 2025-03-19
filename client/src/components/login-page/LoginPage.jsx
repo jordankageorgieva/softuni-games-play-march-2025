@@ -9,6 +9,7 @@ export default function LoginPage({
     //useLogin is a custom hook and we use the function login to send the data
     const {login} = useLogin();
 
+    // previusstate can be _ - in JS this value is not nessecary 
     const loginHandler = async (previusstate, formData) => {
      
         const state = Object.fromEntries(formData);
@@ -18,9 +19,10 @@ export default function LoginPage({
 
         onLogin(authData);
 
-        // navigate("/games");
+        navigate("/games");
     }
 
+    // state can be _  [ in JS underscore _ means that this value is not nessecary]
     const [state, loginAction, isPending] = useActionState(loginHandler, {email: '', password: ''});
     
     
@@ -36,7 +38,7 @@ export default function LoginPage({
                     <input type="email" id="email" name="email" placeholder="Sokka@gmail.com" autoComplete="email"/>
                     <label htmlFor="login-pass">Password:</label>
                     <input type="password" id="login-password" name="password" fdprocessedid = "45q4he" autoComplete="password" />
-                    <input type="submit" className="btn submit" value="Login" />
+                    <input type="submit" className="btn submit" value="Login" disabled={isPending}/>
                     <p className="field">
                         <span>If you don't have profile click <Link to="/register">here</Link></span>
                     </p>
